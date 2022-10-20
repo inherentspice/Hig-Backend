@@ -1,4 +1,6 @@
-const http = require('http')
+const express = require('express')
+const app = express()
+
 
 let beers = [
   {
@@ -18,9 +20,12 @@ let beers = [
   }
 ]
 
-const app = http.createServer((request, response) => {
-  response.writeHead(200, { 'Content-Type': 'text/plain' })
-  response.end(JSON.stringify(beers))
+app.get("/", (request, response) => {
+  response.send("<h1>Welcome to Hig's Backend</h1>")
+})
+
+app.get("/api/beers", (request, response) => {
+  response.json(beers)
 })
 
 const PORT = 3001
