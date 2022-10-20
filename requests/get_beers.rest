@@ -1,0 +1,15 @@
+GET http://localhost:3001/api/beers
+
+###
+
+GET http://localhost:3001/api/beers/2022-10-18
+
+###
+
+POST http://localhost:3001/api/beers
+Content-Type: application/json
+
+{
+  "content": {"nah": 12, "alright": 42, "yeah": 17},
+  "date": "2022-10-17"
+}

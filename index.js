@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 
+app.use(express.json())
+
 
 let beers = [
   {
@@ -26,6 +28,36 @@ app.get("/", (request, response) => {
 
 app.get("/api/beers", (request, response) => {
   response.json(beers)
+})
+
+app.get('/api/beers/:date', (request, response) => {
+  const date = request.params.date
+  const beer = beers.find(beer => beer.date === date)
+  if (beer) {
+    response.json(beer)
+  } else {
+    response.status(404).end()
+  }
+})
+
+app.post('/api/beers', (request, response) => {
+  const body = request.body
+
+  if (!body.content) {
+    return response.status(400).json({
+      error: 'content missing'
+    })
+  }
+
+  const beer = {
+    content: body.content,
+    date: new Date(),
+  }
+
+  beers = beers.concat(beer)
+
+  console.log(beer)
+  response.json(beer)
 })
 
 const PORT = 3001
