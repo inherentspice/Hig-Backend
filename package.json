@@ -1,0 +1,20 @@
+{
+  "name": "hig-backend",
+  "version": "1.0.0",
+  "description": "backend for hig (hows it goin)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inherentspice/Hig-Backend.git"
+  },
+  "author": "Stephen Smith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inherentspice/Hig-Backend/issues"
+  },
+  "homepage": "https://github.com/inherentspice/Hig-Backend#readme"
+}
