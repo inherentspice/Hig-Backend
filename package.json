@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/inherentspice/Hig-Backend/issues"
   },
-  "homepage": "https://github.com/inherentspice/Hig-Backend#readme"
+  "homepage": "https://github.com/inherentspice/Hig-Backend#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
