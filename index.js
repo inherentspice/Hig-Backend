@@ -25,10 +25,6 @@ let beers = [
   }
 ]
 
-app.get("/", (request, response) => {
-  response.send("<h1>Welcome to Hig's Backend</h1>")
-})
-
 app.get("/api/beers", (request, response) => {
   response.json(beers)
 })
@@ -54,7 +50,7 @@ app.post('/api/beers', (request, response) => {
 
   const beer = {
     content: body.content,
-    date: new Date(),
+    date: body.date,
   }
 
   beers = beers.concat(beer)
