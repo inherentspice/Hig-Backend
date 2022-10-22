@@ -9,7 +9,6 @@
     "dev": "nodemon index.js",
     "deploy": "fly deploy",
     "logs:prod": "fly logs"
-
   },
   "repository": {
     "type": "git",
@@ -23,7 +22,9 @@
   "homepage": "https://github.com/inherentspice/Hig-Backend#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.6.7"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

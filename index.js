@@ -1,5 +1,7 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
+const Beer = require("./models/beer")
 const cors = require('cors')
 
 app.use(cors())
@@ -42,21 +44,21 @@ app.get('/api/beers/:date', (request, response) => {
 app.post('/api/beers', (request, response) => {
   const body = request.body
 
-  if (!body.content) {
+  if (body.content === undefined) {
     return response.status(400).json({
       error: 'content missing'
     })
   }
 
-  const beer = {
+  const beer = new Beer ({
     content: body.content,
     date: body.date,
-  }
+  })
 
-  beers = beers.concat(beer)
 
-  console.log(beer)
-  response.json(beer)
+  beer.save().then(savedNote => {
+    response.json(savedNote)
+  })
 })
 
 const PORT = process.env.PORT || 3001
