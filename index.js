@@ -28,7 +28,9 @@ let beers = [
 ]
 
 app.get("/api/beers", (request, response) => {
-  response.json(beers)
+  Beer.find({}).then(beers => {
+    response.json(beers)
+  })
 })
 
 app.get('/api/beers/:date', (request, response) => {
@@ -64,6 +66,19 @@ app.post('/api/beers', (request, response) => {
   beer.save().then(savedNote => {
     response.json(savedNote)
   })
+})
+
+app.put("/api/beers/:date", (request, response) => {
+  const body = request.body
+
+  const beer = {
+    content: body.content,
+    date: body.date
+  }
+  Beer.findOneAndUpdate({date: request.params.date}, beer, { new: true })
+    .then(updatedBeer => {
+      response.json(updatedBeer)
+    })
 })
 
 const PORT = process.env.PORT || 3001
