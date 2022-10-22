@@ -2,7 +2,7 @@ GET http://localhost:3001/api/beers
 
 ###
 
-GET http://localhost:3001/api/beers/2022-10-18
+GET http://localhost:3001/api/beers/2022-10-21
 
 ###
 
@@ -13,3 +13,5 @@ Content-Type: application/json
   "content": {"nah": 19, "alright": 2, "yeah": 37},
   "date": "2022-10-21"
 }
+
+###

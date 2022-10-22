@@ -33,12 +33,17 @@ app.get("/api/beers", (request, response) => {
 
 app.get('/api/beers/:date', (request, response) => {
   const date = request.params.date
-  const beer = beers.find(beer => beer.date === date)
+  Beer.findOne({date: date}).then(beer => {
   if (beer) {
     response.json(beer)
   } else {
     response.status(404).end()
   }
+  })
+  .catch(error => {
+    console.log(error)
+    response.status(500).end()
+  })
 })
 
 app.post('/api/beers', (request, response) => {
@@ -50,7 +55,7 @@ app.post('/api/beers', (request, response) => {
     })
   }
 
-  const beer = new Beer ({
+  const beer = new Beer({
     content: body.content,
     date: body.date,
   })
