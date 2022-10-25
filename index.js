@@ -43,10 +43,12 @@ app.post('/api/beers', (request, response) => {
     date: body.date,
   })
 
-
-  beer.save().then(savedNote => {
+  beer
+    .save()
+    .then(savedNote => {
     response.json(savedNote)
   })
+
 })
 
 app.put("/api/beers/:date", (request, response) => {
